@@ -50,7 +50,6 @@ from varname import argname
 from datatools.core.dtype_cast import iterable_not_string
 from datatools.pandas_register import register_dataframe_method
 
-
 if TYPE_CHECKING:
     pass
 
