@@ -242,17 +242,13 @@ def safe_merge(
                 ' OR "left_index" and "right_index", not a combination of both.'
             )
         right = right.rename(
-            columns={
-                old_name: new_name for old_name, new_name in zip(right_on, left_on)
-            }
+            columns=dict(zip(right_on, left_on))
         )
 
         left, right = normalize_dtypes(left, right)
 
         right = right.rename(
-            columns={
-                old_name: new_name for old_name, new_name in zip(left_on, right_on)
-            }
+            columns=dict(zip(left_on, right_on))
         )
         if not validate and not allow_inflation:
             validate = get_validation_relationship(how)
